@@ -1,0 +1,18 @@
+<h3>Listado de heroes</h3>
+
+
+<div *ngIf="lastHero; else nothingdeleted">
+  <h4>Heroe borrado <small class="text-danger">{{ lastHero }}</small></h4>
+</div>
+
+<!-- refencias en angular -> plantilla o template implicito -->
+<ng-template #nothingdeleted>
+  <h4 class="text-warning">No hay Heroe Borrado</h4>
+</ng-template>
+
+
+<ul class="mt-2 list-group">
+<li *ngFor="let item of heroNames" class="list-group-item">{{ item }}</li>
+</ul>
+
+<button *ngIf="heroNames.length > 0" (click)="DeleteLastHero()" class="btn btn-danger">Borrar ultimo heroe</button>
